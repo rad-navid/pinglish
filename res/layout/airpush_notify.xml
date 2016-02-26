@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true" >
+    </ImageView>
+
+    <!--
+    android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+     
+    If you are using Android API lower than 2.3 for development then remove the above line from below TextView. 
+    It is required if you are using Android 2.3 or later for development.
+    -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+        android:textSize="11dp" />
+
+</RelativeLayout>

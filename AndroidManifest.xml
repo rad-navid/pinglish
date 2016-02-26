@@ -1,0 +1,92 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="peaceworld.sms.pinglish"
+    android:versionCode="2"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+    <!-- my requred permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES" />
+
+    <!-- Required permissions for all ads. This will apply for all ads. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Additional required permission for push notification. Apply only for push notification ad. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Required permission for Icon Ad. Apply only for icon ad. -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <!-- Extra permission for LeadBolt SDK -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name="gui.Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="gui.main_activity" >
+        </activity>
+
+        <!-- Airpush Manifest declaration start -->
+        <!-- Start required declaration for all ads -->
+        <!-- Setup your APPID here. You do not need to change APIKEY declaration. -->
+        <meta-data
+            android:name="com.tgczALJ.FAKIuGN133468.APPID"
+            android:value="104129" />
+        <meta-data
+            android:name="com.tgczALJ.FAKIuGN133468.APIKEY"
+            android:value="FAKIuGN133468*1359987498133468333" />
+        <!-- This activity is required for all ads. This activity is also used for Dialog ads. -->
+        <activity
+            android:name="com.tgczALJ.FAKIuGN133468.OptinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+        <!-- End of required declarations for all ads -->
+        <!-- Start declaration for push notification ads. -->
+        <service
+            android:name="com.tgczALJ.FAKIuGN133468.PushService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.tgczALJ.FAKIuGN133468.BootReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+        <!-- End declaration for push notification ads. -->
+        <!-- Required activity for AppWall and Landing page ads. -->
+        <activity
+            android:name="com.tgczALJ.FAKIuGN133468.SmartWallActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask" />
+        <!-- End of Airpush Manifest declaration -->
+
+
+        <!-- LeadBolt Manifest declaration start -->
+        <receiver android:name="com.pad.android.xappad.AdNotification" />
+        <receiver android:name="pubxappCom.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- End of LeadBolt Manifest declaration -->
+        <activity android:name="gui.About" >
+        </activity>
+        <activity android:name="gui.Help" >
+        </activity>
+    </application>
+
+</manifest>
